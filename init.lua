@@ -421,7 +421,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'lua', 'python', 'tsx', 'vimdoc', 'vim', 'bash', 'hcl', 'terraform' },
+    ensure_installed = { 'lua', 'python', 'tsx', 'vimdoc', 'vim', 'bash', 'hcl', 'terraform', 'go' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -572,6 +572,11 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  helm_ls = {},
+  terraformls = {
+    filetypes = { "terraform", "terraform-vars", "tf" },
+    root_dir = { "*.tf", "*.tfvars" }
+  },
 
   lua_ls = {
     Lua = {
