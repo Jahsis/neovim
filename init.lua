@@ -192,8 +192,12 @@ require('lazy').setup({
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
+    opts = {
+      style = "cool"
+    },
     priority = 1000,
-    config = function()
+    config = function(_, opts)
+      require("onedark").setup(opts)
       vim.cmd.colorscheme 'onedark'
     end,
   },
@@ -213,7 +217,7 @@ require('lazy').setup({
         lualine_c = {
           {
             'filename',
-            path = 4,
+            path = 1,
           }
         }
       }
