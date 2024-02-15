@@ -266,6 +266,45 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    "mfussenegger/nvim-dap",
+    keys = {
+      { "<leader>db", "<cmd> DapToggleBreakpoint <CR>", desc = "NeoTree" },
+      { "<leader>dus",
+        function ()
+          local widgets = require('dap.ui.widgets');
+          local sidebar = widgets.sidebar(widgets.scopes);
+          sidebar.open();
+        end,
+        desc = "Open debugging sidebar"
+      }
+    }
+  },
+
+  {
+    "dreamsofcode-io/nvim-dap-go" ,
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+    end,
+    keys = {
+      { "<leader>dgt",
+        function()
+          require('dap-go').debug_test()
+        end,
+        desc = "Debug go test"
+      },
+      {
+        "<leader>dgl",
+        function()
+          require('dap-go').debug_last()
+        end,
+        desc = "Debug last go test"
+      }
+    }
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
