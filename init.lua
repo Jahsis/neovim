@@ -190,33 +190,31 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "catppuccin/nvim",
+    name = "catppuccin",
     opts = {
-      style = "cool"
+      flavour = "mocha"
     },
     priority = 1000,
     config = function(_, opts)
-      require("onedark").setup(opts)
-      vim.cmd.colorscheme 'onedark'
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme "catppuccin"
     end,
   },
 
   {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
+    "nvim-lualine/lualine.nvim",
     opts = {
       options = {
+        theme = "catppuccin",
         icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = "|",
+        section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_c = {
           {
-            'filename',
+            "filename",
             path = 1,
           }
         }
