@@ -193,7 +193,7 @@ require('lazy').setup({
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "mocha"
+      flavour = "macchiato"
     },
     priority = 1000,
     config = function(_, opts)
